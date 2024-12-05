@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Welcome from './pages/Welcome'
-import ListallPokemon from './pages/ListAllPokemons'
+import ListallPokemons from './pages/ListAllPokemons'
+import ListAllTypes from './pages/ListAllTypes'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/all-pokemons" element={<ListallPokemon />} />
+        <Route path="/all-pokemons" element={<ListallPokemons />} />
+        <Route path="/all-types" element={<ListAllTypes />} />
       </Routes>
     </BrowserRouter>
   

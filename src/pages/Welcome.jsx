@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import useGetRandomTeam from '../hooks/useGetRandomTeam';
-import useGetRandomTypes from '../hooks/useGetRandomTypes';
+import useGetAllTypes from '../hooks/useGetAllTypes';
 
 const Welcome = () => {
-  const {types} = useGetRandomTypes();
+  const {types} = useGetAllTypes();
 
   const {team} = useGetRandomTeam();
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-const useGetRandomTypes = () => {
+const useGetAllTypes = () => {
     const [types, setTypes] = useState([]);
 
     useEffect(() => {
@@ -13,4 +13,4 @@ const useGetRandomTypes = () => {
     }, []);
     return { types };
 };
-export default useGetRandomTypes;
+export default useGetAllTypes;
