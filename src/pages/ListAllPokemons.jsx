@@ -1,29 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import PokemonStats from '../components/PokemonStats';
-const ListallPokemon = () => {
-      const [pokemons, setPokemons] = useState([]);
+import useGetAllPokemonsByGeneration from '../hooks/useGetAllPokemonsByGeneration';
 
-      useEffect(() => {
-        fetch('https://pokebuildapi.fr/api/v1/pokemon/')
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            setPokemons(data);
-          });
-      }, []);
+const ListAllPokemons = () => {
+    const [genNumber, setGenNumber] = useState(1);
+    const { pokemons } = useGetAllPokemonsByGeneration(genNumber);
+    const [allPokemons, setAllPokemons] = useState([]);
+    let currentGen = 1;
 
-      if (pokemons.length === 0) {
+    useEffect(() => {
+        if (pokemons.length > 0) {
+            setAllPokemons(prevPokemons => [...prevPokemons, ...pokemons]);
+            setGenNumber(prevGen => prevGen + 1);
+        }
+    }, [pokemons]);
+
+    if (allPokemons.length > 0) {
+        return (
+            <main>
+                {allPokemons.map((pokemon) => (
+                    <>
+                    <PokemonStats key={pokemon.id} pokemon={pokemon} />
+                    </>
+                ))} 
+            </main>
+        );
+    }
+
+    if (allPokemons.length === 0) {
         return <main>En attente</main>;
-      };
-      
-      return (
-        <main>
-          {pokemons.map((pokemon) => (
-            <PokemonStats key={pokemon.id} pokemon={pokemon} />
-          ))} 
-        </main>
-      );
+    }
 };  
 
-export default ListallPokemon;
+export default ListAllPokemons;
