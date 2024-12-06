@@ -7,11 +7,14 @@ const ListAllPokemons = () => {
     const [genNumber, setGenNumber] = useState(1);
     const { pokemons } = useGetAllPokemonsByGeneration(genNumber);
     const [allPokemons, setAllPokemons] = useState([]);
-    
+    const [genHistory, setGenHistory] = useState([]); 
 
     useEffect(() => {
         if (pokemons.length > 0) {
-            setAllPokemons(prevPokemons => [...prevPokemons, ...pokemons]);
+            if (genNumber > 1) { 
+                setAllPokemons(prevPokemons => [...prevPokemons, { generation: genNumber, pokemons }]);
+                setGenHistory(prevGenHistory => [...prevGenHistory, genNumber]); 
+            }
             setGenNumber(prevGen => prevGen + 1);
         }
     }, [pokemons]);
@@ -20,10 +23,13 @@ const ListAllPokemons = () => {
         return (
             <main>
               <Header />
-                {allPokemons.map((pokemon) => (
-                    <>
-                    <PokemonStats key={pokemon.id} pokemon={pokemon} />
-                    </>
+                {allPokemons.map((genGroup) => (
+                    <div key={genGroup.generation}>
+                        <h2>Generation {genGroup.generation-1}</h2>
+                        {genGroup.pokemons.map((pokemon) => (
+                            <PokemonStats key={pokemon.id} pokemon={pokemon} />
+                        ))}
+                    </div>
                 ))} 
             </main>
         );
