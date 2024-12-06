@@ -7,6 +7,7 @@ const PokemonStats = ({pokemon}) =>{
           <img src={pokemon.image} alt={pokemon.name} />
           <img src={pokemon.sprite} alt={`${pokemon.name} sprite`} />
           </Link>
+          {/*<p>Slug: {pokemon.slug}</p>*/}
           <div>
             <h3>Stats:</h3>
             {Object.entries(pokemon.stats).map(([key, value]) => (

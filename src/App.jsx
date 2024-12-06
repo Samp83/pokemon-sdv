@@ -6,10 +6,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Welcome from './pages/Welcome'
 import ListallPokemons from './pages/ListAllPokemons'
 import ListAllTypes from './pages/ListAllTypes'
-import TypeSearchResults from './pages/TypeSearchResults'
 import PokemonsByType from './pages/PokemonsByType'
 import ShowPokemon from './pages/ShowPokemon'
 import RandomPokemon from './pages/DisplayOneRandomPokemon'
+import PokemonSearchResults from './pages/PokemonSearchResults'
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/type/:type" element={<PokemonsByType/>} />
         <Route path="/pokemon/:id" element={<ShowPokemon/>} />
         <Route path="/random" element={<RandomPokemon/>} />
+        <Route path="/search-results/" element={<PokemonSearchResults />} />
       </Routes>
     </BrowserRouter>
   
