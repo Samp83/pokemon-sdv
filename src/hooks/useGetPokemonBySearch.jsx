@@ -8,7 +8,7 @@ const useGetPokemonBySearch = (query = null) => {
 
     useEffect(() => {
         setIsLoading(true);
-        setPokemon(null); // Vider state pokemon (il ne se vidait pas et restait affiché avant)
+        setPokemon(null); // Vider state pokemon (il ne se vide pas et reste affiché sans ça)
 
         let url = "https://pokebuildapi.fr/api/v1/pokemon/";
         if (query) {
