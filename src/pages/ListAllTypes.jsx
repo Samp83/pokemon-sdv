@@ -15,7 +15,7 @@ const ListAllTypes = () => {
           {types?.map((type) => {
               return (
                   <article key={type.name}>
-                      <Link to={`/pokemons/${type.name}`}>
+                      <Link to={`/type/${type.name}`}>
                           <p>{type.name}</p>
                           <img src={type.image} alt={type.name} />
                       </Link>

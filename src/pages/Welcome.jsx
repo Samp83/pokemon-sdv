@@ -30,7 +30,7 @@ const Welcome = () => {
           {types.length > 0 ? (
               types.sort(() => 0.5 - Math.random()).slice(0, 3).map((type) => (
                   <div key={type.id}>
-                      <Link to={`/type/${type.id}`}>
+                      <Link to={`/type/${type.name}`}>
                           {type.name} <img src={type.image} alt={type.name} />
                       </Link>
                   </div>

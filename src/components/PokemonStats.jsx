@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 const PokemonStats = ({pokemon}) =>{
     return (
         <article>
+          <Link to={`/pokemon/${pokemon.id}`}>
           <h2>{pokemon.name}</h2>
           <img src={pokemon.image} alt={pokemon.name} />
           <img src={pokemon.sprite} alt={`${pokemon.name} sprite`} />
-          <p>Slug: {pokemon.slug}</p>
+          </Link>
           <div>
             <h3>Stats:</h3>
             {Object.entries(pokemon.stats).map(([key, value]) => (
