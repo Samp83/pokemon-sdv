@@ -51,14 +51,17 @@ const Fight = () => {
     }, [wildPokemon]);
 
     const determineWinner = (teamPokemon, wildPokemon) => {
-        const teamScore = teamPokemon.stats.HP + teamPokemon.stats.attack;
-        const wildScore = wildPokemon.stats.HP + wildPokemon.stats.attack;
+        const teamScore = teamPokemon.stats.HP + teamPokemon.stats.attack -  wildPokemon.stats.defense;
+        const wildScore = wildPokemon.stats.HP + wildPokemon.stats.attack - teamPokemon.stats.defense;
         return teamScore >= wildScore ? "team" : "wild";
     };
 
     return (
+        <>
+        <header>
+        <Header />
+        </header>
         <div>
-            <Header />
             <h1>Combat Pokémon</h1>
             <form onSubmit={handleTypeSubmit}>
                 <input
@@ -89,6 +92,7 @@ const Fight = () => {
             <TeamDisplay team={team} />
             <WildPokemonDisplay wildPokemon={wildPokemon} />
         </div>
+        </>
     );  
 };
 

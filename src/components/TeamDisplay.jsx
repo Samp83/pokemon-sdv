@@ -2,7 +2,7 @@ import React from "react";
 
 const TeamDisplay = ({ team }) => {
     return (
-        <div style={{ position: "absolute", bottom: "10px", left: "10px" }}>
+        <div style={{ position: "absolute", top: "700px", left: "10px" }}>
             <h2>Votre équipe</h2>
             <div>
                 {team.map((pokemon) => (
@@ -11,6 +11,7 @@ const TeamDisplay = ({ team }) => {
                         <img src={pokemon.sprite} alt={`${pokemon.name} sprite`} />
                         <p>HP: {pokemon.stats.HP}</p>
                         <p>Attaque: {pokemon.stats.attack}</p>
+                        <p>Défense: {pokemon.stats.defense}</p>
                     </div>
                 ))}
             </div>
