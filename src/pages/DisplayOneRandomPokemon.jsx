@@ -6,7 +6,7 @@ import useGetRandomTeam from '../hooks/useGetRandomTeam';
 
 const RandomPokemon = () => {
   const { team } = useGetRandomTeam();
-  console.log(team);
+  //console.log(team);
 
   if (!team) {
       return <div>En attente</div>;
