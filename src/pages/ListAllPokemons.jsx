@@ -15,16 +15,20 @@ const ListAllPokemons = () => {
                 setAllPokemons(prevPokemons => [...prevPokemons, { generation: genNumber, pokemons }]);
                 setGenHistory(prevGenHistory => [...prevGenHistory, genNumber]); 
             }
-            setGenNumber(prevGen => prevGen + 1);
+            const timer = setTimeout(() => {
+                setGenNumber(genNumber => genNumber + 1);
+            }, 100); // Wait for 1 second after fetching
+
+            return () => clearTimeout(timer); // Cleanup the timer
         }
-    }, [pokemons]);
+    }, [pokemons]);  
 
     if (allPokemons.length > 0) {
         return (
             <main>
               <Header />
                 {allPokemons.map((genGroup) => (
-                    <div key={genGroup.generation}>
+                    <div key={genGroup.generation-1}>
                         <h2>Generation {genGroup.generation-1}</h2>
                         {genGroup.pokemons.map((pokemon) => (
                             <PokemonStats key={pokemon.id} pokemon={pokemon} />
