@@ -17,9 +17,8 @@ const ListAllPokemons = () => {
             }
             const timer = setTimeout(() => {
                 setGenNumber(genNumber => genNumber + 1);
-            }, 100); // Wait for 1 second after fetching
-
-            return () => clearTimeout(timer); // Cleanup the timer
+            }, 100); 
+            return () => clearTimeout(timer); 
         }
     }, [pokemons]);  
 
