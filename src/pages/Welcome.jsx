@@ -14,7 +14,7 @@ const Welcome = () => {
   return (
       <main>
         <Header />
-          <h2><Link to='/all-pokemons'>Équipe de Pokémons</Link></h2>
+          <h2><Link to='/all-pokemons'>Pokémons</Link></h2>
           {team.length > 0 ? (
               team.map((pokemon) => (
                   <div key={pokemon.id}>

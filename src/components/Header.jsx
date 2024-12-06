@@ -17,6 +17,11 @@ const Header = () => {
                     <Link to="/">Accueil</Link>
                 </li>
             </ul>
+            <ul>
+                <li>
+                    <Link to="/random">Pokémon aléatoire</Link>
+                </li>
+            </ul>
             <form method="get" onSubmit={HandleSubmitSearch}>
           <label>
             Recherche :

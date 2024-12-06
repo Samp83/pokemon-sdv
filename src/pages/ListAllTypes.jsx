@@ -12,6 +12,7 @@ const ListAllTypes = () => {
     
   return (
       <section>
+        <Header />
           {types?.map((type) => {
               return (
                   <article key={type.name}>
