@@ -10,6 +10,7 @@ import PokemonsByType from './pages/PokemonsByType'
 import ShowPokemon from './pages/ShowPokemon'
 import RandomPokemon from './pages/DisplayOneRandomPokemon'
 import PokemonSearchResults from './pages/PokemonSearchResults'
+import Fight from './pages/Fight'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/pokemon/:id" element={<ShowPokemon/>} />
         <Route path="/random" element={<RandomPokemon/>} />
         <Route path="/search-results/" element={<PokemonSearchResults />} />
+        <Route path="/fight" element={<Fight />} />
       </Routes>
     </BrowserRouter>
   
