@@ -8,7 +8,8 @@ const WildPokemonDisplay = ({ wildPokemon }) => {
             <h2>Pokémon Sauvage</h2>
             <div>
                 <p>{wildPokemon.name}</p>
-                <p>HP: {wildPokemon.stats.hp}</p>
+                <img src={wildPokemon.sprite} alt={`${wildPokemon.name} sprite`} />
+                <p>HP: {wildPokemon.stats.HP}</p>
                 <p>Attaque: {wildPokemon.stats.attack}</p>
             </div>
         </div>

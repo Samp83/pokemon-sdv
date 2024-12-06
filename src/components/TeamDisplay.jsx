@@ -8,7 +8,8 @@ const TeamDisplay = ({ team }) => {
                 {team.map((pokemon) => (
                     <div key={pokemon.id}>
                         <p>{pokemon.name}</p>
-                        <p>HP: {pokemon.stats.hp}</p>
+                        <img src={pokemon.sprite} alt={`${pokemon.name} sprite`} />
+                        <p>HP: {pokemon.stats.HP}</p>
                         <p>Attaque: {pokemon.stats.attack}</p>
                     </div>
                 ))}
