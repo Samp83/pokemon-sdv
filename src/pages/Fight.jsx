@@ -56,6 +56,14 @@ const Fight = () => {
         return teamScore >= wildScore ? "team" : "wild";
     };
 
+    const shufflePokemon = (array) => {
+        const newArray = [...array]; 
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray; 
+    };
     return (
         <>
         <header>
@@ -79,8 +87,8 @@ const Fight = () => {
             {team.length === 0 && ( 
             <div>
                 <h2>Pokémon disponibles</h2>
-                {pokemons &&
-                    pokemons.slice(0, 10).map((pokemon) => (
+                {pokemons && 
+                    shufflePokemon(pokemons).slice(0, 10).map((pokemon) => (
                         <div key={pokemon.id} onClick={() => addToTeam(pokemon)}>
                             {pokemon.name}
                             <img src={pokemon.sprite} alt={`${pokemon.name} sprite`} />
